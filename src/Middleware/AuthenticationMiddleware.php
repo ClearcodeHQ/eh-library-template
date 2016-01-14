@@ -22,15 +22,13 @@ class AuthenticationMiddleware
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
-        $token = null; /* assign token here */
+        /* your code here */
+
+        $this->auth->authenticate(/* arguments */);
 
         /* your code here */
 
-        $this->auth->authenticate($token);
-
-        /* your code here */
-
-        $token = (new Parser())->parse($token);
+        $token = (new Parser())->parse(/* arguments */);
 
         $user = $this->auth->getUser($token->getClaim('email'));
 
