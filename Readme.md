@@ -1,3 +1,10 @@
+## Installation
+
+```
+$ composer install
+$ php bin/loadUsers.php
+```
+
 ## Application template
 
 ### Actions
