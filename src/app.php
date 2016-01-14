@@ -26,15 +26,13 @@ $app->map(['<method>'], '<url>', function(ServerRequestInterface $request, Respo
 
     /* your code here */
 
-    $email = null; /* assign email here */
-
-    $user = $auth->getUser($email);
+    $user = $auth->getUser(/* arguments */);
 
     if (!$user instanceof User) {
         /* your code here */
     }
 
-    $token = $auth->generateToken($user->email());
+    $token = $auth->generateToken(/* arguments */);
 
     /* your code here */
 
@@ -58,8 +56,7 @@ $app->map(['<method>'], '<url>', function (ServerRequestInterface $request, Resp
 
     /* your code here */
 
-    $bookId = Uuid::uuid4();
-    $library->addBook($bookId /* arguments */);
+    $library->addBook(/* arguments */);
 
     /* your code here */
 
@@ -73,7 +70,7 @@ $app->map(['<method>'], '<url>', function (ServerRequestInterface $request, Resp
 
     /* your code here */
 
-    $content = json_encode($library->listOfBooks(/* arguments */));
+    $books = $library->listOfBooks(/* arguments */);
 
     /* your code here */
 
@@ -129,7 +126,7 @@ $app->map(['<method>'], '<url>', function (ServerRequestInterface $request, Resp
 
     /* your code here */
 
-    $content = json_encode($library->listReservationsForBook(/* arguments */));
+    $reservations = $library->listReservationsForBook(/* arguments */);
 
     /* your code here */
 
