@@ -1,5 +1,10 @@
 ## Application template
 
+### Actions
+
+authentication and authorization middleware is added to all actions in [app.php](https://github.com/ClearcodeHQ/eh-library-template/blob/master/src/app.php)
+that need to be protected
+
 ### Placeholders
 
 placeholders can be found in:

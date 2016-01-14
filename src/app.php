@@ -6,7 +6,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Clearcode\EHLibrarySandbox\Slim\Middleware\AuthenticationMiddleware;
 use Clearcode\EHLibrarySandbox\Slim\Middleware\AuthorizationMiddleware;
-use Ramsey\Uuid\Uuid;
 use Clearcode\EHLibraryAuth\Model\User;
 
 $container = new \Slim\Container;
