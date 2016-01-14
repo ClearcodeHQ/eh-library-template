@@ -52,7 +52,7 @@ $app->map(['<method>'], '<url>', function(ServerRequestInterface $request, Respo
 });
 ```
 
-### authentication with JWT
+#### authentication with JWT
 
 this placeholder is from [AuthenticationMiddleware.php](https://github.com/ClearcodeHQ/eh-library-template/blob/master/src/Middleware/AuthenticationMiddleware.php) which is used to authenticate the user by JWT
 
