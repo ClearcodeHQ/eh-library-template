@@ -5,6 +5,8 @@ $ composer install
 $ php bin/loadUsers.php
 ```
 
+loadUsers adds a librarian user to the database (librarian@example.com)
+
 ## Application template
 
 ### Actions
@@ -21,30 +23,30 @@ placeholders can be found in:
 
 #### log in example
 
-this placeholder is for implementation of user log in. In this current example password is not used, user is logged in only by email for the sake of simplicity.
+this placeholder is for implementation of user log in. In this current example **password is not used, user is logged in only by email** for the sake of simplicity.
 
 student is required to design:
 * how does the url look
 * how the request arguments are passed to the action
 * what HTTP method is to be used here
-* how use email (needed for getUser) is acquired
-* what happens when the user does not exist (what is the response)
+* how user email is acquired (needed for getUser)
+* what happens when the user does not exist (how should the response look like)
 * how to generate and pass a JWT to the response in case user logs in successfully
 
 
 ```php
 //Login user (login by email only - no password)
-$app->map(['<method>'], '<url>', function(ServerRequestInterface $request, ResponseInterface $response, $args = []) use ($auth /* dependencies */) {
+$app->map(['<method>'], '<url>', function(ServerRequestInterface $request, ResponseInterface $response, $args = []) {
 
     /* your code here */
 
-    $user = $auth->getUser(/* arguments */);
+    $user = $this->auth->getUser(/* arguments */);
 
     if (!$user instanceof User) {
         /* your code here */
     }
 
-    $token = $auth->generateToken(/* arguments */);
+    $token = $this->auth->generateToken(/* arguments */);
 
     /* your code here */
 
@@ -54,12 +56,12 @@ $app->map(['<method>'], '<url>', function(ServerRequestInterface $request, Respo
 
 #### authentication with JWT
 
-this placeholder is from [AuthenticationMiddleware.php](https://github.com/ClearcodeHQ/eh-library-template/blob/master/src/Middleware/AuthenticationMiddleware.php) which is used to authenticate the user by JWT
+this placeholder is from [AuthenticationMiddleware.php](https://github.com/ClearcodeHQ/eh-library-template/blob/master/src/Middleware/AuthenticationMiddleware.php) which is used to authenticate the user using JWT
 
 here the student designs:
-* how to pass JWT in a request and how to acquire the token from it
+* how to pass JWT in a request and use it to authenticate the user ($token is an argument in LibraryAuth::authenticate)
 * how to handle exceptions thrown by authenticate method
-* what to do when user does not exist
+* how the response should look like when user does not exist
 
 ```php
 public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
