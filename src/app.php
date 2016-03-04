@@ -39,8 +39,11 @@ $authenticationMiddleware = new AuthenticationMiddleware($auth);
 $app->map(['GET'], '/test', function(ServerRequestInterface $request, ResponseInterface $response, $args = []) {
 
     $response->getBody()->write(
-        get_class($this->auth) . '</br>' .
-        get_class($this->library) . '</br>'
+        'It works!' . '</br>' .
+        'you can see that these properties were injected using dependency injection container' . '</br>' .
+        'which you can use to add your own services if needed to the task' . '</br>' .
+        'auth property is of class ' . get_class($this->auth) . '</br>' .
+        'library property is of class ' . get_class($this->library) . '</br>'
     );
 
     return $response;

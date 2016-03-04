@@ -7,6 +7,23 @@ $ php bin/loadUsers.php
 
 loadUsers adds a librarian user to the database (librarian@example.com)
 
+## Start
+
+```
+$ cd web
+$ php -S <addr>:<port> index.php
+```
+
+open `http://<addr>:<port>/test` in your browser, you should see
+
+```
+It works!
+you can see that these properties were injected using dependency injection container
+which you can use to add your own services if needed to the task
+auth property is of class Clearcode\\EHLibraryAuth\\Application
+library property is of class Clearcode\\EHLibrary\\Application
+```
+
 ## Application template
 
 ### Actions
